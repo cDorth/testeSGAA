@@ -1,0 +1,87 @@
+Quero que você atue como um desenvolvedor backend profissional especializado em FastAPI e implemente autenticação segura e controle de acesso no meu sistema WMS.
+
+📌 Contexto do Projeto
+
+O backend está em FastAPI (estrutura semelhante às imagens enviadas).
+
+O frontend está separado em SGA-Frontend com arquivos HTML estáticos.
+
+O backend utiliza tabelas como DimUsuario e DimProfessor no banco.
+
+✅ NÃO ALTERE NADA NO FRONTEND – trabalhar somente no backend.
+
+O login atual é simples e precisa ser profissional, seguro e funcional.
+
+✅ Objetivos
+🔐 Parte 1: Sistema de Login Profissional (JWT)
+
+Implementar ou corrigir a autenticação no backend para:
+
+Fazer login com email e senha.
+
+Validar o usuário no banco corretamente.
+
+Diferenciar se é Professor ou Usuário padrão consultando:
+
+DimProfessor (professores)
+
+DimUsuario (usuários comuns)
+
+Retornar para o frontend um JSON nesse formato:
+
+{
+  "access_token": "JWT_TOKEN",
+  "token_type": "bearer",
+  "tipo_usuario": "professor", // ou "usuario"
+  "email": "usuario@teste.com"
+}
+
+
+Proteger rotas privadas com JWT.
+
+Criar arquivo security.py se necessário.
+
+Usar hash de senha (passlib).
+
+👨‍🏫 Parte 2: Funcionar Tela de Adicionar Usuário (Professor)
+
+A tela http://127.0.0.1:5500/SGA-Frontend/public/adicionarUsuario.html deve funcionar usando o backend.
+
+Professores podem criar novos usuários.
+
+Rota POST /usuarios ou POST /auth/register deve:
+
+Validar token JWT.
+
+Verificar se quem está cadastrando é Professor.
+
+Salvar o campo inserido_por automaticamente com email do usuário logado.
+
+Criar o novo usuário com senha hash.
+
+Retornar JSON de confirmação.
+
+✅ Regras Obrigatórias
+
+Analise as rotas existentes no projeto antes (em auth.py, usuarios.py, etc).
+
+Use apenas a estrutura que já existe no backend.
+
+Não alterar nenhuma página HTML, somente backend.
+
+Proteger as rotas com JWT.
+
+Código limpo, organizado e profissional.
+
+✅ Entregáveis
+
+Na resposta, entregue:
+✅ Arquivos Python modificados ou criados
+✅ Rotas corrigidas/implementadas
+✅ Schemas e models atualizados se necessário
+✅ Configuração de segurança JWT
+✅ Explicação rápida de como testar
+
+Comece analisando meu backend e me pergunte o que for necessário.
+IMPORTANTE: Use as tabelas DimUsuario e DimProfessor para definir o tipo de usuário. O backend deve reconhecer o tipo automaticamente.
+Quando estiver pronto, gere o código.
