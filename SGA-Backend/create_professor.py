@@ -4,6 +4,7 @@ Execute: python create_professor.py
 """
 
 import asyncio
+from sqlalchemy import select
 from app.core.database import SessionLocal
 from app.models.professor import DimProfessor
 from app.core.security import get_password_hash
@@ -14,11 +15,12 @@ async def create_initial_professor():
         email = "professor@exemplo.com"
         senha_plain = "senha123"
         
-        existing = await db.execute(
-            f"SELECT * FROM dimprofessor WHERE email = '{email}'"
+        result = await db.execute(
+            select(DimProfessor).where(DimProfessor.email == email)
         )
+        existing = result.scalar_one_or_none()
         
-        if existing.scalar():
+        if existing:
             print(f"❌ Professor com email {email} já existe!")
             return
         
