@@ -7,13 +7,15 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 from app.core.database import get_db
 from app.models.usuario import DimUsuario
 from app.models.professor import DimProfessor
 
-load_dotenv()
+env_path = Path(__file__).parent.parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
 SECRET_KEY = os.getenv("SECRET_KEY", "sua_chave_secreta_super_segura_aqui_mude_para_producao")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
