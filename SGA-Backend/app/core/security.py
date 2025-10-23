@@ -62,8 +62,8 @@ async def get_current_user(
     token = credentials.credentials
     payload = decode_access_token(token)
     
-    email: str = payload.get("sub")
-    tipo_usuario: str = payload.get("tipo_usuario")
+    email = payload.get("sub")
+    tipo_usuario = payload.get("tipo_usuario")
     
     if email is None or tipo_usuario is None:
         raise HTTPException(
