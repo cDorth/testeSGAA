@@ -10,7 +10,7 @@ Sistema de gerenciamento de armazém (WMS) com backend em FastAPI e frontend em 
 - **Banco de Dados**: PostgreSQL (com asyncpg)
 - **Autenticação**: JWT (JSON Web Tokens)
 - **ORM**: SQLAlchemy 2.0 (async)
-- **Porta**: 8000 (localhost)
+- **Porta**: 8000 (0.0.0.0 - acessível externamente)
 
 ### Frontend (SGA-Frontend)
 - **Framework**: Express.js (Node.js 20)
@@ -170,6 +170,14 @@ curl -X POST http://localhost:8000/usuarios \
 ✅ Conversão automática de DATABASE_URL do Replit
 ✅ Workflows configurados (Frontend porta 5000, Backend porta 8000)
 ✅ Dependências instaladas (python-jose, python-multipart, email-validator)
+✅ Backend exposto em 0.0.0.0:8000 para acesso externo
+✅ Frontend integrado com backend usando URL dinâmica
+
+### Frontend - Correções Implementadas:
+✅ Arquivo `js/config.js` criado com URL dinâmica da API
+✅ Página de login (`index.html`) atualizada para usar a configuração centralizada
+✅ Parsing da resposta JWT corrigido (access_token, tipo_usuario, email)
+✅ Token JWT armazenado no localStorage para uso em outras requisições
 
 ## Próximos Passos Sugeridos
 
